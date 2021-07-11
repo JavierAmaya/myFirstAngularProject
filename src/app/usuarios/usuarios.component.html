@@ -1,0 +1,21 @@
+<h1>Usuarios</h1>
+<input type="text" placeholder="Nombre Usuario" [(ngModel)]="usuario.nombre"> <br>
+<input type="text" placeholder="apellido" [(ngModel)]="usuario.apellido"><br>
+<br>
+<button type="button" (click) = 'guardar()'>Guardar</button>
+<hr>
+<h3 *ngIf="usuarios.length == 0">no hay informacion</h3>
+<table *ngIf="usuarios.length != 0">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of usuarios">
+            <td>{{item.nombre}}</td>
+            <td><img [src]="item.apellido" ></td>
+        </tr>
+    </tbody>
+</table>
