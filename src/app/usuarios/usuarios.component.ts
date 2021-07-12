@@ -26,16 +26,24 @@ export class UsuariosComponent implements OnInit {
     this.httpClient.get(`${this.backendHost}/usuarios`)
     .subscribe((res) => {
       this.usuarios = res;
-      console.log(this.usuarios);
+      console.log('esto tiene usuarios',this.usuarios);
     });
   }
 
   guardar(){
-
     this.httpClient.post(`${this.backendHost}/usuarios`,this.usuario)
-    .subscribe((res)=>{
-      console.log(res);
+    .subscribe((res:any)=>{
+      console.log('esto trae res: ',res);
+      this.usuarios.push(res.usuarioGuardado);
     });
   }
 
+  eliminar(indice:any){
+    console.log(indice);
+    this.httpClient.delete(`${this.backendHost}/usuarios/${indice}`)
+    .subscribe((res:any)=>{
+      console.log(res);
+      this.usuarios.splice(indice,1);
+    });
+  }
 }
