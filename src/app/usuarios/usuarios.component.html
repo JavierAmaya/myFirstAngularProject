@@ -1,6 +1,7 @@
 <h1>Usuarios</h1>
 <input type="text" placeholder="Nombre Usuario" [(ngModel)]="usuario.nombre"> <br>
 <input type="text" placeholder="apellido" [(ngModel)]="usuario.apellido"><br>
+<input type="text" placeholder="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento"><br>
 <br>
 <button type="button" (click) = 'guardar()'>Guardar</button>
 <hr>
@@ -10,12 +11,15 @@
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Fecha Nacimiento</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of usuarios">
             <td>{{item.nombre}}</td>
-            <td><img [src]="item.apellido" ></td>
+            <td>{{item.apellido}}</td>
+            <td>{{item.fechaNacimiento}}</td>
+            <!--td><img [src]="item.apellido" ></td-->
         </tr>
     </tbody>
 </table>
